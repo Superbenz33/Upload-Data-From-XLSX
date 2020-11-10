@@ -1,3 +1,3 @@
 # Upload-Data-From-XLSX
-Php script for upload data from .xlsx
-Php 5.6
+PHP script for upload data from .xlsx
+PHP 5.6
