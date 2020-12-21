@@ -44,7 +44,6 @@
   $data_req = $namedDataArray[$Table_name];
   $data_res = $fn_db_text->GenQueryText($data_req,$cnt_col_name,$header_row_xlsx,$Table_name);
   print_r($data_res);
-
   /* End Section DB Query */
 
 
@@ -80,9 +79,9 @@
             $i2++;
             if($value2 != 'insert' && $value2 != 'update') {
               if($i2 < $cnt_col_name){
-                $strSQL .= '"'.$value2.'",';
+                $strSQL .= '"'.trim($value2).'",';
               }else{
-                $strSQL .= '"'.$value2.'"';
+                $strSQL .= '"'.trim($value2).'"';
               }
             }
           }
@@ -100,15 +99,15 @@
             if($value2 != 'insert' && $value2 != 'update') {
               if($key2 != $header_row_xlsx[0]) {
                 if($i2 < $cnt_col_name){
-                  $strSQL .= $key2.'='.'"'.$value1[$key2].'", ';
+                  $strSQL .= $key2.'='.'"'.trim($value1[$key2]).'", ';
                 } else {
-                  $strSQL .= $key2.'='.'"'.$value1[$key2].'"';
+                  $strSQL .= $key2.'='.'"'.trim($value1[$key2]).'"';
                 }
               }
             }
           }
           /* where column 0 */
-          $strSQL .= ' where '.$header_row_xlsx[0].' = "'.$value1[$header_row_xlsx[0]].'"; ';
+          $strSQL .= ' where '.$header_row_xlsx[0].' = "'.trim($value1[$header_row_xlsx[0]]).'"; ';
 
         } elseif($value1['DB_type'] == 'null' || $value1['DB_type'] == '') { /* If Type = null or empty */
           $strSQL = "";
