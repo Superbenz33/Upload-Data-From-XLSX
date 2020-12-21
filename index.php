@@ -15,7 +15,7 @@
 
     /* Loop data in sheetname select */
     foreach ($sheetNames as $sheetName) {
-      $sheet = $xlsx->getSheet($sheetName);
+      $sheet = $xlsx->getSheet($Table_name);
       $xlsx_data = $sheet->getData();
       $header_row_xlsx = array_shift($xlsx_data);
       $cnt_col_name = count($header_row_xlsx)-1;
